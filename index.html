@@ -93,8 +93,8 @@
             dataset.push(val);
             const message = dataset.join('\n\n');
             userInput.value = '';
+            addMessage('You', val);
 
-            addMessage('You', message);
             fetch('https://custom-openai.azurewebsites.net/api/custom?code=YVq2mZRI7fgiknIWDVe3WVmYpbBgrMiGnWhx9JNC11PIAzFuChMpAg==', {
                 method: 'POST',
                 headers: {
