@@ -94,16 +94,16 @@
 
             addMessage('You', message);
             addMessage('Server', 'Hello World!')
-            // fetch('/path/to/server', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ message })
-            // })
-            // .then(response => response.json())
-            // .then(data => addMessage('Server', data.message))
-            // .catch(error => console.error(error));
+            fetch('https://custom-openai.azurewebsites.net/api/custom?code=YVq2mZRI7fgiknIWDVe3WVmYpbBgrMiGnWhx9JNC11PIAzFuChMpAg==', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message })
+            })
+            .then(response => response.json())
+            .then(data => addMessage('Server', data.message))
+            .catch(error => console.error(error));
         });
 
         function addMessage(sender, message) {
