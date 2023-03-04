@@ -85,11 +85,13 @@
         const chatMessages = document.getElementById('chat-messages');
         const form = document.querySelector('form');
         const userInput = document.getElementById('user-input');
-
+        var dataset = [];
         form.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent the form from submitting normally
 
-            const message = userInput.value;
+            const val = userInput.value;
+            dataset.push(val);
+            const message = dataset.join('\n\n');
             userInput.value = '';
 
             addMessage('You', message);
@@ -102,6 +104,7 @@
             })
             .then(response => response.json())
             .then(data => addMessage('Server', data.message))
+            .then(data => dataset.push(data))
             .catch(error => console.error(error));
         });
 
@@ -111,6 +114,7 @@
             messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom of messages
+            return message;
         }
     </script>
 </body>
