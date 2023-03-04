@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #chat-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+        #chat-messages {
+            flex: 1;
+            overflow-y: auto;
+        }
+        #chat-messages p {
+            margin: 0;
+            margin-bottom: 1rem;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            max-width: 70%;
+        }
+        #chat-messages p strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            height: 40px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 0 20px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0062cc;
+        }
+        .you {
+            align-self: flex-end;
+            background-color: #007bff;
+        }
+        .server {
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-box">
+        <div id="chat-messages"></div>
+        <form>
+            <input type="text" id="user-input" placeholder="Type your message here..." />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const form = document.querySelector('form');
+        const userInput = document.getElementById('user-input');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            const message = userInput.value;
+            userInput.value = '';
+
+            addMessage('You', message);
+            addMessage('Server', 'Hello World!')
+            // fetch('/path/to/server', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ message })
+            // })
+            // .then(response => response.json())
+            // .then(data => addMessage('Server', data.message))
+            // .catch(error => console.error(error));
+        });
+
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('p');
+            messageElement.classList.add(sender.toLowerCase());
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom of messages
+        }
+    </script>
+</body>
+</html>
