@@ -64,9 +64,7 @@
         button[type="submit"]:hover {
             background-color: #0062cc;
         }
-        .you {
-            margin-left: 30%;
-        }
+        
         
     </style>
 </head>
@@ -89,7 +87,12 @@
 
             const val = userInput.value;
             dataset.push(val);
-            const message = dataset.join('\n\n');
+            if(dataset.length=0){
+                //const message = dataset.join('\n\n');
+            }else{
+                const message = dataset.join('\n\n');
+            }
+            
             userInput.value = '';
             addMessage('You', val);
 
