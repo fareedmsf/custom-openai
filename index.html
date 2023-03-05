@@ -3,7 +3,7 @@
 <head>
     <title>Chat Interface 1.0</title>
     <style>
-  #chat-box {
+ #chat-box {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -21,22 +21,23 @@ p {
   font-size: 14px;
   line-height: 1.4;
   margin: 5px;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 70%;
 }
 
 .you {
-  background-color: #e6f3ff;
+  background-color: #dcf8c6;
+  color: #2c2e2f;
   float: right;
   clear: both;
-  margin-right: 10px;
 }
 
 .server {
-  background-color: #f2f2f2;
+  background-color: #fff;
+  color: #2c2e2f;
   float: left;
   clear: both;
-  margin-left: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -63,12 +64,17 @@ p {
 
   .you {
     float: none;
+    margin-bottom: 5px;
+    text-align: right;
   }
 
   .server {
     float: none;
+    margin-bottom: 5px;
+    text-align: left;
   }
 }
+
         
         
     </style>
