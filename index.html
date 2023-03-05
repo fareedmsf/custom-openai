@@ -3,67 +3,41 @@
 <head>
     <title>Chat Interface 1.0</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-           ;
-            padding: 0;
-        }
         #chat-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-            background-color: #502f2f;
-        }
-        #chat-messages {
-            flex: 1;
-            overflow-y: auto;
-        }
-        #chat-messages p {
-            margin: 0;
-            margin-bottom: 1rem;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-            max-width: 70%;
-        }
-        #chat-messages p strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        form {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            flex: 1;
-            height: 40px;
-            padding: 10px;
-            border-radius: 20px;
-            border: none;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-            font-size: 16px;
-            margin-right: 10px;
-        }
-        button[type="submit"] {
-            height: 40px;
-            border-radius: 20px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            padding: 0 20px;
-        }
-        button[type="submit"]:hover {
-            background-color: #0062cc;
-        }
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#chat-messages {
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.you {
+  background-color: #e6f3ff;
+  float: right;
+  clear: both;
+  margin-right: 10px;
+}
+
+.server {
+  background-color: #f2f2f2;
+  float: left;
+  clear: both;
+  margin-left: 10px;
+}
         
         
     </style>
